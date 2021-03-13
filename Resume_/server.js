@@ -7,7 +7,7 @@ const path = require('path');
 const app = express();
 var nodemailer=require('nodemailer');
 
-const whitelist = ['http://localhost:3000'​, 'http://localhost:8080'​]
+const whitelist = ['http://localhost:3000'​, 'http://localhost:5000'​]
 const corsOptions = {
   origin: function (origin, callback) {
     console.log("** Origin of request " + origin)
