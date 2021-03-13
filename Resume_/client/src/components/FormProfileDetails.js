@@ -8,14 +8,25 @@ export class FormProfileDetails extends Component {
   };
 
   formSubmit=(e)=>{
-      e.preventDefault();
-      this.props.submitted();
-      this.props.nextStep();
+    e.preventDefault();
+    this.props.submitted();
+    this.props.nextStep();
 
-      const data = this.props.values;
-      console.log(data);
+    const email= this.state.email;
+    axios.post('/email')
 
-  e.target.reset();
+    const data = this.props.values;
+    console.log(data);
+
+    axios.post('/create-pdf', data)
+    .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
+    .then((res) => {
+        const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+
+        saveAs(pdfBlob, 'cv.pdf');
+    });
+
+e.target.reset();
 
 }
 
