@@ -14,6 +14,9 @@ export class FormProfileDetails extends Component {
       this.props.submitted();
       this.props.nextStep();
 
+    
+
+
       const data = this.props.values;
       console.log(data);
 
@@ -24,6 +27,11 @@ export class FormProfileDetails extends Component {
 
           saveAs(pdfBlob, 'cv.pdf');
       });
+      axios.post('/email',data)
+    .then(()=>console.log("email1 send"))
+    .catch(err=>{
+        console.error(err);
+    });
 
   e.target.reset();
 
