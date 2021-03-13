@@ -16,6 +16,7 @@
     "dev": "nodemon server"
   },
   "scripts": {
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "server": "nodemon index.js",
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
