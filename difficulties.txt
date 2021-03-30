@@ -1,0 +1,8 @@
+1. Not able to retrieve the dat from client to the server
+sol-> We were using get request --- big big misconception POST needs to be used as we wanted the req body using the package body parser
+
+2.The pdf was not generated initally as we were facing the bad server error  (400)
+
+3.Nodemailer was used which makes the google account less secure and then only sends the mail, For this we added the cloud configuration feature of configuratio keys
+
+4.CORS error- fixed using useCors and implementing proxy in package.json
